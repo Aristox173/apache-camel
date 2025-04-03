@@ -11,7 +11,7 @@ public class PedidoFileRoute extends RouteBuilder {
         from("file:input?noop=true&include=.*\\.csv")
                 .process(exchange -> {
                     String fileName = (String) exchange.getIn().getHeader("CamelFileName");
-                    System.out.println(fileName);
+                    System.out.println("NUEVO ARCHIVO DETECTADO: " + fileName);
                 })
                 .to("file:output");
     }
